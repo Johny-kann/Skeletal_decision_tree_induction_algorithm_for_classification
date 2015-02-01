@@ -1,5 +1,7 @@
 package com.data_mining.view.console.decision_tree;
 
+import java.io.BufferedWriter;
+
 import com.data_mining.constants.NodeConstants;
 import com.data_mining.constants.Notations;
 import com.data_mining.exceptions.LeafNodeException;
@@ -17,32 +19,44 @@ public class TreeBuilder {
 		accuracy = new Accuracy();
 	}
 	
-	public void printTree(TreeNodes node)
+	public String printTree(TreeNodes node,String str)
 	{
+		
 		if(node.getType()==NodeConstants.LEAF_NODE)
 		{
 			System.out.println(getSpaces(node)+node.getNodeTitle()+" Class "+node.getMaxClass()
 					+" correct "+node.getCorrectClassCount()
 					+" wrong "+node.getWrongClassCount());
+			
+			str+=getSpaces(node)+node.getNodeTitle()+" Class "+node.getMaxClass()
+					+" correct "+node.getCorrectClassCount()
+					+" wrong "+node.getWrongClassCount();
+		
+			
 			accuracy.addRightClass(node.getCorrectClassCount());
 			accuracy.addWrongClass(node.getWrongClassCount());
 		}
 		else
 		{
 			System.out.println(getSpaces(node)+node.getNodeTitle());
+			
+			str += getSpaces(node)+node.getNodeTitle();
+			
 		}
 	//	InputGetter.getEnter();
 		if(node.getType()!=NodeConstants.LEAF_NODE)
 		try {
 			for(TreeNodes child:node.getChildren())
 			{
-				printTree(child);
+				printTree(child,str);
 				
 			}
 		} catch (LeafNodeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return str;
 	}
 	
 	public String getSpaces(TreeNodes node)

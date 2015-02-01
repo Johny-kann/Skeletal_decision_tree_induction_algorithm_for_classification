@@ -23,7 +23,7 @@
 
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
-
+<start-class>com.data_mining.main.InitProgram</start-class>
 	</properties>
 	
 	<dependencies>
@@ -76,4 +76,46 @@
 		</dependency>
 
 	</dependencies>	
+	
+	<build>
+	<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.2</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+    <plugins>
+	<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-shade-plugin</artifactId>
+		<version>2.3</version>
+		 <executions>  
+		 	<execution>  
+				<phase>package</phase>
+				<goals>
+					<goal>shade</goal>
+				</goals>
+
+		 </execution>  
+
+		 </executions> 
+
+	</plugin>
+ 
+</plugins>
+  </build>
+    
+   <pluginRepositories>
+        <pluginRepository>
+            <id>onejar-maven-plugin.googlecode.com</id>
+            <url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

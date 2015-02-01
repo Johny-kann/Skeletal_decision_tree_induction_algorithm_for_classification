@@ -1,8 +1,13 @@
 package com.data_mining.controller;
 
 import com.data_mining.constants.FilesList;
+import com.data_mining.file_readers.TextFileWriter;
 import com.data_mining.logic.AttributeAndRecordLoaders;
 import com.data_mining.model.attributes_records.DataTable;
+import com.data_mining.model.nodes.RootTreeNode;
+import com.data_mining.model.nodes.TreeNodes;
+import com.data_mining.view.console.Outputs;
+import com.data_mining.view.console.decision_tree.TreeBuilder;
 
 public class MainController {
 
@@ -44,13 +49,51 @@ public class MainController {
 		return mainAttributes;
 	}
 	
-	public void loadAttributes()
+	public TreeNodes trainTree()
 	{
+		loadAttributesAndRecords();
 		
+		TreeNodes tn = new RootTreeNode(getMainTable());
+	
+		System.out.println("Train Data");
+		new Outputs().outPutTable(tn.getInputRecords());
+			
+		TreeBuilder tb = new TreeBuilder(tn);
+		
+		TextFileWriter write = new TextFileWriter();
+		String str="";
+		write.writeFile(tb.printTree(tn,str),FilesList.WRITE_TRAIN_RESULT);
+		System.out.println("Accuracy "+tb.getAccuracy());
+		
+		return tn;
 	}
-	public void loadRecords()
+	
+	
+	public void testTree(TreeNodes tn)
 	{
+		TreeBuilder tb2 = new TreeBuilder(tn);
+		System.out.println("Test Data");
 		
+		try {
+			
+			TreeNodes tn2 = (TreeNodes)tn.clone();
+			
+			testData();
+			tn2.testData(getTestAttributes());
+			new Outputs().outPutTable(tn2.getInputRecords());
+			
+			TextFileWriter write = new TextFileWriter();
+			String str="";
+		
+			write.writeFile(tb2.printTree(tn2,str), FilesList.WRITE_TEST_RESULT);
+	//		tb2.printTree(tn2);
+			
+			System.out.println("Accuracy "+tb2.getAccuracy());
+			
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public DataTable getTestAttributes() {
