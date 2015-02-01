@@ -1,1 +1,19 @@
 ROOT
+|	majorVessels<0.5
+|	|	bloodPressure<147.0
+|	|	|	oldpeakST<2.45
+|	|	|	|	cholestoral<248.0 Class no correct 6 wrong 1
+|	|	|	|	cholestoral>=248.0
+|	|	|	|	|	chestPain 1 Class null correct 0 wrong 0
+|	|	|	|	|	chestPain 2 Class null correct 0 wrong 0
+|	|	|	|	|	chestPain 3 Class no correct 2 wrong 0
+|	|	|	|	|	chestPain 4 Class no correct 1 wrong 0
+|	|	|	oldpeakST>=2.45 Class null correct 0 wrong 0
+|	|	bloodPressure>=147.0 Class yes correct 2 wrong 1
+|	majorVessels>=0.5
+|	|	oldpeakST<0.4
+|	|	|	cholestoral<254.5 Class null correct 0 wrong 0
+|	|	|	cholestoral>=254.5 Class no correct 2 wrong 1
+|	|	oldpeakST>=0.4 Class yes correct 4 wrong 0
+
+Accuracy 0.85

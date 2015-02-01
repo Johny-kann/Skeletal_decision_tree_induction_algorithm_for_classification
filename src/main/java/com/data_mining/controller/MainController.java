@@ -62,7 +62,9 @@ public class MainController {
 		
 		TextFileWriter write = new TextFileWriter();
 		String str="";
-		write.writeFile(tb.printTree(tn,str),FilesList.WRITE_TRAIN_RESULT);
+		String tes = tb.printTree(tn,str)+System.lineSeparator()+"Accuracy "+tb.getAccuracy();
+		write.writeFile(tes,FilesList.WRITE_TRAIN_RESULT);
+		System.out.println(tes);
 		System.out.println("Accuracy "+tb.getAccuracy());
 		
 		return tn;
@@ -85,7 +87,9 @@ public class MainController {
 			TextFileWriter write = new TextFileWriter();
 			String str="";
 		
-			write.writeFile(tb2.printTree(tn2,str), FilesList.WRITE_TEST_RESULT);
+			String str2="";
+			String tes = tb2.printTree(tn,str2)+System.lineSeparator()+"Accuracy "+tb2.getAccuracy();
+			write.writeFile(tes, FilesList.WRITE_TEST_RESULT);
 	//		tb2.printTree(tn2);
 			
 			System.out.println("Accuracy "+tb2.getAccuracy());

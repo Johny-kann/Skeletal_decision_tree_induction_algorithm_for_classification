@@ -32,6 +32,7 @@ public class TreeBuilder {
 					+" correct "+node.getCorrectClassCount()
 					+" wrong "+node.getWrongClassCount();
 		
+			str+=System.lineSeparator();
 			
 			accuracy.addRightClass(node.getCorrectClassCount());
 			accuracy.addWrongClass(node.getWrongClassCount());
@@ -41,6 +42,7 @@ public class TreeBuilder {
 			System.out.println(getSpaces(node)+node.getNodeTitle());
 			
 			str += getSpaces(node)+node.getNodeTitle();
+			str+=System.lineSeparator();
 			
 		}
 	//	InputGetter.getEnter();
@@ -48,7 +50,7 @@ public class TreeBuilder {
 		try {
 			for(TreeNodes child:node.getChildren())
 			{
-				printTree(child,str);
+				str=printTree(child,str);
 				
 			}
 		} catch (LeafNodeException e) {
