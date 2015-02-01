@@ -19,25 +19,7 @@ import com.data_mining.view.console.Outputs;
 
 public class InternalNode implements TreeNodes , Cloneable{
 
-	private TreeNodes parentNode;
 	
-	private DataTable inputRecords;
-	private List<TreeNodes> childNodes;
-	
-	private String nodeType;
-	private Integer nodeChosenIndex;
-	private String nodeTitle;
-	private String nodeSplit;
-	private Double error;
-	private Double errorSplit;
-	private String nodeChosenAttribute;
-	private String nodeChosenCondition;
-	private Integer decisionTreeLevel;
-	private Double cntnsValue;
-
-	private String classSelected;
-	private Integer countOfCorrectClass;
-	private Integer countOfWrongClass;
 	
 	public InternalNode(DataTable input,String title,int level) 
 	{

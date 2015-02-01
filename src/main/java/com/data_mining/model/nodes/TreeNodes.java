@@ -4,23 +4,68 @@ import java.util.List;
 
 import com.data_mining.exceptions.LeafNodeException;
 import com.data_mining.exceptions.ParentNodeException;
+import com.data_mining.logic.ChoosingAttributes;
 import com.data_mining.model.attributes_records.DataTable;
 
-public interface TreeNodes{
+public class TreeNodes{
+	
+private TreeNodes parentNode;
+	
+	private DataTable inputRecords;
+	private List<TreeNodes> childNodes;
+	
+	private Integer nodeChosenIndex;
+	private String nodeTitle;
+	private String nodeSplit;
+	private Double error;
+	private Double errorSplit;
+	private String nodeChosenAttribute;
+	private String nodeChosenCondition;
+	private Integer decisionTreeLevel;
+	private Double cntnsValue;
+
+	private String classSelected;
+	private Integer countOfCorrectClass;
+	private Integer countOfWrongClass;
+	
+	
+	public Double getError() {
+		// TODO Auto-generated method stub
+		return error;
+	}
 	
 	
 	
-	public Double getError();
+	public void calculateError() {
+		// TODO Auto-generated method stub
+		ChoosingAttributes err = new ChoosingAttributes(inputRecords);
+		error = err.calculateErrorForTable(inputRecords);
+		assignClassAndCounts();
+		
+	}
 	
-	public String getType();
 	
-	public void calculateError();
+	public TreeNodes clone() throws CloneNotSupportedException {
+	      TreeNodes clonedCustomer = (TreeNodes) super.clone();
+	 
+	      // Clone the object referenced objects
+	      
+	      return clonedCustomer;
+	   }
 	
-	public TreeNodes clone() throws CloneNotSupportedException;
 	
-	public DataTable getInputRecords();
 	
-	public void setInputRecords(DataTable inputRecords);
+	public DataTable getInputRecords() {
+		// TODO Auto-generated method stub
+		return inputRecords;
+	}
+	
+	
+	public void setInputRecords(DataTable inputRecords) {
+		// TODO Auto-generated method stub
+		this.inputRecords = inputRecords;
+		
+	}
 	
 	public List<TreeNodes> getChildren() throws LeafNodeException;
 	

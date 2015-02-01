@@ -55,15 +55,6 @@ public class RootTreeNode implements TreeNodes , Cloneable{
 	}
 	
 	@Override
-	public TreeNodes clone() throws CloneNotSupportedException {
-	      TreeNodes clonedCustomer = (TreeNodes) super.clone();
-	 
-	      // Clone the object referenced objects
-	      
-	      return clonedCustomer;
-	   }
-	
-	@Override
 	public void testData(DataTable table)
 	{
 		SearchingLogics sl = new SearchingLogics();
