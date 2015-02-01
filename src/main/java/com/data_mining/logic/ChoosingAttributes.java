@@ -18,6 +18,11 @@ import com.data_mining.model.nodes.RootTreeNode;
 import com.data_mining.model.nodes.TreeNodes;
 import com.data_mining.view.console.Outputs;
 
+/**
+ * @author Janakiraman
+ *
+ *Class with methods to choose the best attributes
+ */
 public class ChoosingAttributes {
 
 	private DataTable inputRecords;
@@ -32,6 +37,12 @@ public class ChoosingAttributes {
 	}
 	
 	
+	/**
+	 * Calculates the error for the table
+	 * @param table
+	 * @return error value
+	 * 
+	 */
 	public double calculateErrorForTable(DataTable table)
 	{
 		List<String> values = table.getClassValues();
@@ -48,6 +59,12 @@ public class ChoosingAttributes {
 		
 	}
 	
+	/**
+	 * finds the best attribute based on the split and returns the an object containing the details
+	 * @param table
+	 * @param error
+	 * @return
+	 */
 	public PassingAttribute findBestAttribute(DataTable input,Double error)
 	{
 	//	Map<String,Double> attrbErrorMap = new LinkedHashMap<String, Double>();
@@ -58,41 +75,31 @@ public class ChoosingAttributes {
 		{
 			if(input.getAttributes().get(i).getType().equals(Notations.DISCRETE_ATTRB))
 			{
-//				System.out.println("Choosing "+input.getAttributes().get(i).getName()+" index "+i);
-			//	attrbErrorMap.put(
-			//			input.getAttributes().get(i).getName(), 
-			//			findErrorForDiscrete(input, i));
 				errorList.addErrorModel(findErrorForDiscrete(input, i, error));
 			}
 			
 			if(input.getAttributes().get(i).getType().equals(Notations.CNTS_ATTRB))
 			{
-//				System.out.println("Choosing "+input.getAttributes().get(i).getName()+" index "+i);
-//				attrbErrorMap.put(
-//						input.getAttributes().get(i).getName(), 
-//						findErrorForContinuous(input, i));
 				errorList.addErrorModel(findErrorForContinuous(input, i,error));
-			
-//				System.out.println("Error for continuous Added");
 				
 			}
 		}
 		
-	//	System.out.println(attrbErrorMap);
-		
 		CommonLogics cl = new CommonLogics();
-	//	return cl.bestAttributeFromMap(attrbErrorMap);
+
 		return cl.bestAttributeFromErrorModel(errorList);
 		
 		
 	}
 	
-/*	private Double findErrorForContinuous(DataTable input,int index)
-	{
-		
-	}
-	*/
 	
+	/**
+	 * Finds error for discrete attributes
+	 * @param input
+	 * @param index
+	 * @param pError
+	 * @return error model object
+	 */
 	private ErrorModel findErrorForDiscrete(DataTable input,int index,Double pError)
 	{
 		List<String> values =  input.getAttributes().get(index).getValues();
@@ -132,7 +139,14 @@ public class ChoosingAttributes {
 	}
 	
 
-	// Have to redefine this function such that it accepts continuous values
+
+	/**
+	 * finds errors for continuous attributes
+	 * @param table
+	 * @param attribute index
+	 * @param parent error
+	 * @return object of error model
+	 */
 	private ErrorModel findErrorForContinuous(DataTable input,int index,Double pError)
 	{
 		List<Double> values = findValuesForContinuousAttributes(input, index);
@@ -206,6 +220,11 @@ public class ChoosingAttributes {
 		return err;
 	}
 	
+	/**
+	 * @param table
+	 * @param attribute index
+	 * @return possible values of continuous attributes
+	 */
 	private List<Double> findValuesForContinuousAttributes(DataTable input, int index)
 	{
 		CommonLogics cl = new CommonLogics();
@@ -224,6 +243,10 @@ public class ChoosingAttributes {
 		return values;
 	}
 	
+	/**
+	 * @param categories
+	 * @return error gain
+	 */
 	public Double error(Map<String,Integer> categories)
 	{
 		ErrorsAndGain errGain = new ErrorsAndGain();

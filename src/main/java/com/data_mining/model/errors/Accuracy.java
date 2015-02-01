@@ -1,5 +1,11 @@
 package com.data_mining.model.errors;
 
+/**
+ * @author Janakiraman
+ * 
+ * Model for storing accuracy
+ *
+ */
 public class Accuracy {
 
 	private Integer wrongClass;

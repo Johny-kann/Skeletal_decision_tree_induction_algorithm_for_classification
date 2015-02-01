@@ -8,8 +8,18 @@ import com.data_mining.model.attributes_records.AttributesSpecifications;
 import com.data_mining.model.attributes_records.DataTable;
 import com.data_mining.model.attributes_records.Records;
 
+/**
+ * @author Janakiraman
+ * Class used for searching and refining attributes
+ *
+ */
 public class SearchingLogics {
 
+	/**
+	 * @param temp
+	 * @param name
+	 * @return attribute obj
+	 */
 	public AttributesSpecifications searchingAttribute(List<AttributesSpecifications> temp,String name)
 	{
 		AttributesSpecifications result = null;

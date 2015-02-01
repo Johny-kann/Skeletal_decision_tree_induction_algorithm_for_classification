@@ -12,6 +12,12 @@ import java.net.URL;
 
 import com.data_mining.constants.FilesList;
 
+/**
+ * @author Janakiraman
+ * 
+ * Writes the output to a file
+ *
+ */
 public class TextFileWriter {
 
 	public void writeFile(String content,String location)

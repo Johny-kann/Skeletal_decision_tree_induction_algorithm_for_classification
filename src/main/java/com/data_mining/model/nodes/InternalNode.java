@@ -17,6 +17,12 @@ import com.data_mining.model.attributes_records.DataTable;
 import com.data_mining.model.errors.PassingAttribute;
 import com.data_mining.view.console.Outputs;
 
+/**
+ * @author Janakiraman
+ * 
+ * Internal node model
+ *
+ */
 public class InternalNode implements TreeNodes , Cloneable{
 
 	private TreeNodes parentNode;

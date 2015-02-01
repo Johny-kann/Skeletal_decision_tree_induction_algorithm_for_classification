@@ -5,6 +5,11 @@ import java.util.List;
 
 import com.data_mining.constants.Notations;
 
+/**
+ * Error model class is useful to store the error related info on the object
+ * @author Janakiraman
+ *
+ */
 public class ErrorModel {
 
 	private String attrbName;

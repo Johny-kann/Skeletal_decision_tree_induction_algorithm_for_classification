@@ -11,6 +11,12 @@ import com.data_mining.logic.CommonLogics;
 import com.data_mining.logic.SearchingLogics;
 import com.data_mining.model.attributes_records.DataTable;
 
+/**
+ * @author Janakiraman
+ * 
+ * Leaf node model
+ *
+ */
 public class LeafNode implements TreeNodes,Cloneable{
 	
 	private DataTable inputRecords;

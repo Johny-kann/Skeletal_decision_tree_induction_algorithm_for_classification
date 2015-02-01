@@ -1,5 +1,10 @@
 package com.data_mining.model.errors;
 
+/**
+ * The final attribute which comes to the nodes for defining errors and split
+ * @author Janakiraman
+ *
+ */
 public class PassingAttribute {
 
 	private String attrName;

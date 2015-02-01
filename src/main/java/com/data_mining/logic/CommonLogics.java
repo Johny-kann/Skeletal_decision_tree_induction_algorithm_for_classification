@@ -20,6 +20,10 @@ import com.data_mining.model.attributes_records.Records;
 import com.data_mining.model.errors.ErrorModelList;
 import com.data_mining.model.errors.PassingAttribute;
 
+/**
+ * @author Janakiraman
+ *Basic logic functions like sort, remove etx
+ */
 public class CommonLogics {
 
 	
@@ -49,7 +53,7 @@ public class CommonLogics {
 	 * 
 	 * Removes a record from the list and gives a new list unaffected by the old list
 	 * @param original
-	 * @return
+	 * @return refined record
 	 */
 	public Records removeElementFromRecordDiscrete(Records original,int index)
 	{
@@ -64,6 +68,11 @@ public class CommonLogics {
 	
 
 	
+	/**
+	 * @param table
+	 * @param class value
+	 * @return count of a particular class value
+	 */
 	public Integer getCountOfClassValue(DataTable table,String value)
 	{
 		Integer sum=0;
@@ -77,6 +86,11 @@ public class CommonLogics {
 	}
 	
 	
+	/**
+	 * Total classes and their counts
+	 * @param table
+	 * @return map of classes and counts
+	 */
 	public Map<String,Integer> classAndCounts(DataTable table)
 	{
 		Map<String,Integer> categories = new LinkedHashMap<String, Integer>();
@@ -94,6 +108,11 @@ public class CommonLogics {
 		
 	}
 	
+	/**
+	 * sorts the table according to the attribute index
+	 * @param table
+	 * @param attribute
+	 */
 	public void sort(DataTable temp,int index)
 	{
 		Records tem;
@@ -119,6 +138,11 @@ public class CommonLogics {
 	}
 	
 	
+	/**
+	 * @param table
+	 * @param attributeIndex
+	 * @return splitted values for continuous attribute
+	 */
 	public List<Double> fillSplitList(DataTable table,int attributeIndex)
 	{
 		List<Records> temp = table.getRecords();
@@ -154,6 +178,10 @@ public class CommonLogics {
 		return splits;
 	}
 	 
+	/**
+	 * @param table
+	 * @return list of positions where split can occur
+	 */
 	public List<Integer> splitPostition(DataTable table)
 	{
 		List<Integer> list = new ArrayList<Integer>();
@@ -172,6 +200,11 @@ public class CommonLogics {
 		return list;
 	}
 	
+	/**
+	 * finds the best attribute and returns the passing attribute obj
+	 * @param errorModel
+	 * @return best attribute obj
+	 */
 	public PassingAttribute bestAttributeFromErrorModel(ErrorModelList input)
 	{
 		PassingAttribute index = null;
@@ -268,6 +301,10 @@ public class CommonLogics {
 		return index;
 	}
 	
+	/**
+	 * @param table
+	 * @return if it belongs to a leaf node
+	 */
 	public boolean isleafNode(DataTable input)
 	{
 		ChoosingAttributes cr = new ChoosingAttributes(input);
@@ -284,6 +321,10 @@ public class CommonLogics {
 		}
 	}
 	
+	/**
+	 * @param map of classes and counts
+	 * @return best class
+	 */
 	public String bestClassFromMap(Map<String,Integer> input)
 	{
 		String index = null;
@@ -307,6 +348,11 @@ public class CommonLogics {
 		
 	}
 	
+	/**
+	 * @param table
+	 * @param error
+	 * @return finds the maximum occurred class
+	 */
 	public String findMaxClass(DataTable inputRecords,Double error)
 	{
 		String classSelected;
@@ -327,6 +373,10 @@ public class CommonLogics {
 		return classSelected;
 	}
 	
+	/**
+	 * @param map of attributes and their split errors
+	 * @return best attribute
+	 */
 	public String bestAttributeFromMap(Map<String,Double> input)
 	{
 		String index = null;
@@ -352,6 +402,10 @@ public class CommonLogics {
 		
 	}
 
+	/**
+	 * @param Node condition
+	 * @return Node value
+	 */
 	public String getNodeValueFromCondition(String str)
 	{
 		String temp;
@@ -377,6 +431,10 @@ public class CommonLogics {
 		return temp;
 	}
 	
+	/**
+	 * @param Node condition
+	 * @return node name
+	 */
 	public String getNodeNameFromCondition(String str)
 	{
 		String temp;
@@ -402,6 +460,11 @@ public class CommonLogics {
 		return temp;
 	}
 	
+	/**
+	 * based on this value the records are assigned to the children
+	 * @param node condition of parent
+	 * @return child split information
+	 */
 	public String getDecisionForChildRecordSender(String str)
 	{
 		String temp;

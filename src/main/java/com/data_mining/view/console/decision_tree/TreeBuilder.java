@@ -8,6 +8,12 @@ import com.data_mining.exceptions.LeafNodeException;
 import com.data_mining.model.errors.Accuracy;
 import com.data_mining.model.nodes.TreeNodes;
 
+/**
+ * @author Janakiraman
+ * 
+ * Builds the decision tree
+ *
+ */
 public class TreeBuilder {
 
 	private TreeNodes rootNode;

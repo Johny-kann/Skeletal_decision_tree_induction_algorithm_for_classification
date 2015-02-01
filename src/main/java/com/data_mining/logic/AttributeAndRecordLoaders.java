@@ -9,6 +9,7 @@ import com.data_mining.parsers.RecordParser;
 
 /**
  * @author Janakiraman
+ * Class with methods to parse the attributes and Records and load it in the models
  *
  */
 public class AttributeAndRecordLoaders {

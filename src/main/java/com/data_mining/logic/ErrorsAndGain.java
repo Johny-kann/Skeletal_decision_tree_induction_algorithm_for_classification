@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @author Janakiraman
+ *Errors and gain class
+ */
 public class ErrorsAndGain {
 
 	public double roundOff(double x, int position)
@@ -22,6 +26,10 @@ public class ErrorsAndGain {
     }
 
 	
+	/**
+	 * @param map of categories and their counts
+	 * @return classification error
+	 */
 	public Double classificationError(Map<String,Integer> categories)
 	{
 		
@@ -33,6 +41,10 @@ public class ErrorsAndGain {
 		return roundOff(error, 8);
 	}
 	
+	/**
+	 * @param map of categories and their counts
+	 * @return gini error
+	 */
 	public Double giniError(Map<String,Integer> categories)
 	{
 		
@@ -50,6 +62,10 @@ public class ErrorsAndGain {
 		return roundOff(gini, 8);
 	}
 	
+	/**
+	 * @param map
+	 * @return list
+	 */
 	public List<Integer> mapToList(Map<String,Integer> categor)
 	{
 		Set<String> keys = categor.keySet();
@@ -63,6 +79,10 @@ public class ErrorsAndGain {
 		return classes;
 	}
 	
+	/**
+	 * @param nums
+	 * @return sum
+	 */
 	public Integer listToTotal(List<Integer> nums)
 	{
 		Integer sum = 0;
@@ -76,6 +96,12 @@ public class ErrorsAndGain {
 	}
 	
 	
+	/**
+	 * @param errors
+	 * @param records
+	 * @param totalParentRecords
+	 * @return error of split
+	 */
 	public Double errorSplit(List<Double> errors,List<Integer> records,Integer totalParentRecords)
 	{
 		Double error = 0.0;
@@ -96,6 +122,13 @@ public class ErrorsAndGain {
 		return roundOff(error, 8);
 	}
 	
+	/**
+	 * @param records
+	 * @param totalParentRecords
+	 * @param parent error
+	 * @param errorSplit
+	 * @return gain ratio
+	 */
 	public Double gainRatio(List<Integer> records,Integer totalParentRecords,Double pError,Double errorSplit)
 	{
 		Double gain = pError - errorSplit;
@@ -103,6 +136,11 @@ public class ErrorsAndGain {
 		
 	}
 	
+	/**
+	 * @param records
+	 * @param totalParentRecords
+	 * @return split information
+	 */
 	public Double splitInfo(List<Integer> records,Integer totalParentRecords)
 	{
 		Double error = 0.0;
@@ -119,11 +157,23 @@ public class ErrorsAndGain {
 		return roundOff(error, 8);
 	}
 	
+	/**
+	 * @param errorParent
+	 * @param errorSplit
+	 * @return gain
+	 */
 	public Double gainCalculator(Double errorParent,Double errorSplit)
 	{
 		return errorParent - errorSplit;
 	}
 	
+	/**
+	 * @param errorParent
+	 * @param parentRecords
+	 * @param list of ChildRecords
+	 * @param list of ChildErrors
+	 * @return gain
+	 */
 	public Double gainCalculator(double errorParent,Integer parentRecords,List<Integer> listChildRecordsNum,List<Double> listChildErrors)
 	{
 		double errorSplit = 0;

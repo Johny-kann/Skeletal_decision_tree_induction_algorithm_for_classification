@@ -2,6 +2,12 @@ package com.data_mining.model.attributes_records;
 
 import java.util.List;
 
+/**
+ * @author Janakiraman
+ * 
+ * Model for storing attributes
+ *
+ */
 public class AttributesSpecifications
 {
 	private String name;

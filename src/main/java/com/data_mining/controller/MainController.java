@@ -9,6 +9,12 @@ import com.data_mining.model.nodes.TreeNodes;
 import com.data_mining.view.console.Outputs;
 import com.data_mining.view.console.decision_tree.TreeBuilder;
 
+/**
+ * @author Janakiraman 
+ * 
+ * Main Controller for loading test data and train data and calling functions
+ *
+ */
 public class MainController {
 
 	DataTable mainAttributes;
@@ -49,28 +55,38 @@ public class MainController {
 		return mainAttributes;
 	}
 	
+	/**
+	 * @return Root note
+	 * Trains the tree
+	 */
 	public TreeNodes trainTree()
 	{
 		loadAttributesAndRecords();
+		TextFileWriter write = new TextFileWriter();
 		
 		TreeNodes tn = new RootTreeNode(getMainTable());
 	
 		System.out.println("Train Data");
+		String tes=
 		new Outputs().outPutTable(tn.getInputRecords());
 			
 		TreeBuilder tb = new TreeBuilder(tn);
 		
-		TextFileWriter write = new TextFileWriter();
+		
 		String str="";
-		String tes = tb.printTree(tn,str)+System.lineSeparator()+"Accuracy "+tb.getAccuracy();
+		tes += tb.printTree(tn,str)+System.lineSeparator()+"Accuracy "+tb.getAccuracy();
 		write.writeFile(tes,FilesList.WRITE_TRAIN_RESULT);
-		System.out.println(tes);
+	//	System.out.println(tes);
 		System.out.println("Accuracy "+tb.getAccuracy());
 		
 		return tn;
 	}
 	
 	
+	/**
+	 * @param Trained root node
+	 * Tests the tree with the data
+	 */
 	public void testTree(TreeNodes tn)
 	{
 		TreeBuilder tb2 = new TreeBuilder(tn);
@@ -82,13 +98,14 @@ public class MainController {
 			
 			testData();
 			tn2.testData(getTestAttributes());
+			String tes=
 			new Outputs().outPutTable(tn2.getInputRecords());
 			
 			TextFileWriter write = new TextFileWriter();
 			String str="";
 		
 			String str2="";
-			String tes = tb2.printTree(tn,str2)+System.lineSeparator()+"Accuracy "+tb2.getAccuracy();
+			tes += tb2.printTree(tn,str2)+System.lineSeparator()+"Accuracy "+tb2.getAccuracy();
 			write.writeFile(tes, FilesList.WRITE_TEST_RESULT);
 	//		tb2.printTree(tn2);
 			

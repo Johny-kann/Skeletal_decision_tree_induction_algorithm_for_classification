@@ -20,6 +20,11 @@ import com.data_mining.model.attributes_records.DataTable;
 import com.data_mining.model.errors.PassingAttribute;
 import com.data_mining.view.console.Outputs;
 
+/**
+ * @author Janakiraman 
+ * Root node model
+ *
+ */
 public class RootTreeNode implements TreeNodes , Cloneable{
 
 	private DataTable inputRecords;

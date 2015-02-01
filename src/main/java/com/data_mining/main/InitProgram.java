@@ -17,6 +17,7 @@ public class InitProgram {
 		MainController mc = new MainController();
 		
 		TreeNodes t1 = mc.trainTree();
+		
 		mc.testTree(t1);
 	}
 

@@ -3,6 +3,11 @@ package com.data_mining.model.errors;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Janakiraman
+ *
+ *Deals with list of error model objs
+ */
 public class ErrorModelList {
 
 	private List<ErrorModel> errors;

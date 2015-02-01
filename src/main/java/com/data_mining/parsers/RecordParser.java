@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 import com.data_mining.constants.Notations;
 
 /**
- * @author User
+ * @author Janakiraman
  *
  */
 public class RecordParser {

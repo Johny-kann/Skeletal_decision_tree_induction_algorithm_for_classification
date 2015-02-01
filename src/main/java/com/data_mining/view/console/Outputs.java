@@ -4,6 +4,11 @@ import com.data_mining.model.attributes_records.DataTable;
 
 public class Outputs {
 
+	/**
+	 * prints the table
+	 * @param table
+	 * @return gives the string
+	 */
 	public String outPutTable(DataTable table)
 	{
 		String str = "";
@@ -23,6 +28,7 @@ public class Outputs {
 			{
 				System.out.println(table.getClassName());
 				str+=table.getClassName();
+				str+=System.lineSeparator();
 			}
 		}
 		
@@ -41,6 +47,7 @@ public class Outputs {
 				{
 					System.out.println(table.getRecordAtIndex(i).getClassAttribute());
 					str+=table.getRecordAtIndex(i).getClassAttribute();
+					str+=System.lineSeparator();
 					
 				}
 			}
