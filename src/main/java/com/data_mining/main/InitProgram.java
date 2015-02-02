@@ -18,7 +18,7 @@ public class InitProgram {
 		
 		TreeNodes t1 = mc.trainTree();
 		
-		mc.testTree(t1);
+//		mc.testTree(t1);
 	}
 
 }
