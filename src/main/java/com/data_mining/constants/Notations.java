@@ -25,4 +25,5 @@ public class Notations {
 	public static final String CNTNS_GREATER_THAN = ">=";
 	public static final String DISCRETE_EQUALITY = "=";
 	
+	public static String DEFAULT_CLASS;
 }

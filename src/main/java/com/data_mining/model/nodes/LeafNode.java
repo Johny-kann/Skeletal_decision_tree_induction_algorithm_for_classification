@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.data_mining.constants.NodeConstants;
+import com.data_mining.constants.Notations;
 import com.data_mining.exceptions.LeafNodeException;
 import com.data_mining.logic.ChoosingAttributes;
 import com.data_mining.logic.CommonLogics;
@@ -41,6 +42,7 @@ public class LeafNode implements TreeNodes,Cloneable{
 		inputRecords = input;
 		nodeTitle = title;
 		decisionTreeLevel = level;
+		
 		try {
 			start();
 		} catch (LeafNodeException e) {
@@ -181,6 +183,13 @@ public class LeafNode implements TreeNodes,Cloneable{
 		classSelected = cl.findMaxClass(inputRecords, error);
 		
 		
+		if(classSelected == null)
+		{
+		
+			classSelected = Notations.DEFAULT_CLASS;
+		
+		}
+		
 		
 	}
 
@@ -219,6 +228,12 @@ public class LeafNode implements TreeNodes,Cloneable{
 		// TODO Auto-generated method stub
 		CommonLogics cl = new CommonLogics();
 		classSelected = cl.findMaxClass(inputRecords, error);
+		if(classSelected == null)
+		{
+		
+			classSelected = Notations.DEFAULT_CLASS;
+		
+		}
 		return classSelected;
 		
 	}

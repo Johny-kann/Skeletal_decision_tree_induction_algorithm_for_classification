@@ -302,7 +302,9 @@ public class RootTreeNode implements TreeNodes , Cloneable{
 		
 			CommonLogics cl = new CommonLogics();
 			classSelected = cl.findMaxClass(inputRecords, error);
+			Notations.DEFAULT_CLASS = classSelected;
 		
+		//	System.out.println(Notations.DEFAULT_CLASS);
 		return classSelected;
 	}
 
